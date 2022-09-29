@@ -2,13 +2,13 @@ import com.github.javafaker.Faker;
 
 import java.util.Locale;
 
-public class UserDataFaker {
+public class CustomerDataFaker {
 
     private String firstName;
     private String lastName;
     private String email;
 
-    public UserDataFaker(Locale locale) {
+    public CustomerDataFaker(Locale locale) {
         Faker faker = new Faker(locale);
 
         firstName = faker.name().firstName();
