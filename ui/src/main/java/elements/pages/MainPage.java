@@ -22,6 +22,18 @@ public class MainPage {
     @FindBy(css = "#register-modal")
     private RegisterModal registerModal;
 
+    @Step("Open the 'Customer login' modal")
+    public void openCustomerLoginModal() {
+        topBar.clickOnLoginButton();
+    }
+
+    @Step("Fill the 'Customer login' modal and click on the 'Log in' button")
+    public void fillCustomerLoginModalClickOnLogInButton(Customer customer) {
+        customerLoginModal.fillUsernameInput(customer.getUsername());
+        customerLoginModal.fillPasswordInput(customer.getPassword());
+        customerLoginModal.clickOnLoginButton();
+    }
+
     @Step("Open the 'Register' modal")
     public void openRegisterModal() {
         topBar.clickOnRegisterButton();
@@ -34,5 +46,6 @@ public class MainPage {
         registerModal.fillLastNameInput(customer.getLastName());
         registerModal.fillEmailInput(customer.getEmail());
         registerModal.fillPasswordInput(customer.getPassword());
+        registerModal.clickRegisterButton();
     }
 }

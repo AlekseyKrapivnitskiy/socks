@@ -2,6 +2,7 @@ package elements.modals;
 
 import com.codeborne.selenide.ElementsContainer;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
 public class CustomerLoginModal extends ElementsContainer {
@@ -17,4 +18,19 @@ public class CustomerLoginModal extends ElementsContainer {
 
     @FindBy(css = ".close")
     private SelenideElement closeButton;
+
+    @Step("Fill the 'Username' input")
+    public void fillUsernameInput(String username) {
+        usernameInput.setValue(username);
+    }
+
+    @Step("Fill the 'Password' input")
+    public void fillPasswordInput(String password) {
+        passwordInput.setValue(password);
+    }
+
+    @Step("Click on the 'Login' button")
+    public void clickOnLoginButton() {
+        logInButton.click();
+    }
 }
