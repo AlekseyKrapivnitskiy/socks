@@ -19,6 +19,9 @@ public class CustomerLoginModal extends ElementsContainer {
     @FindBy(css = ".close")
     private SelenideElement closeButton;
 
+    @FindBy(css = "#login-message")
+    private SelenideElement loginMessage;
+
     @Step("Fill the 'Username' input")
     public void fillUsernameInput(String username) {
         usernameInput.setValue(username);
@@ -32,5 +35,10 @@ public class CustomerLoginModal extends ElementsContainer {
     @Step("Click on the 'Login' button")
     public void clickOnLoginButton() {
         logInButton.click();
+    }
+
+    @Step("Get login message")
+    public String getLoginMessage() {
+        return loginMessage.getText();
     }
 }
