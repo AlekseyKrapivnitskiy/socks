@@ -8,7 +8,11 @@ import entities.Customer;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
-public class MainPage {
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static systemAlerts.RegistrationAlerts.REGISTRATION_SUCCESSFUL;
+
+public class BasePage {
 
     @FindBy(css = "#topbar")
     private TopBarFragment topBar;
@@ -47,5 +51,16 @@ public class MainPage {
         registerModal.fillEmailInput(customer.getEmail());
         registerModal.fillPasswordInput(customer.getPassword());
         registerModal.clickRegisterButton();
+        checkRegistrationMessage(REGISTRATION_SUCCESSFUL);
+    }
+
+    @Step("Check that customer logged in")
+    public void checkCustomerLoggedIn(Customer customer) {
+        assertThat(topBar.getUsername(), containsString(customer.getFirstName() + " " + customer.getLastName()));
+    }
+
+    @Step("Check registration message")
+    public void checkRegistrationMessage(String message) {
+        assertThat(registerModal.getRegistrationMessage(), containsString(message));
     }
 }
