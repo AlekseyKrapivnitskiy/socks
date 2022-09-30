@@ -19,7 +19,7 @@ public class CustomerDataFaker {
         firstName = faker.name().firstName();
         lastName = faker.name().lastName();
         username = firstName.trim() + lastName.trim();
-        email = firstName.toLowerCase().trim() + lastName.toLowerCase().trim() + "@" + getProperty("emailDomain");
+        email = username.toLowerCase() + "@" + getProperty("emailDomain");
     }
 
     public String username() {
