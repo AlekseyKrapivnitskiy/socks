@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class ConfigProperties {
 
-    private ConfigProperties() {};
+    private ConfigProperties() {}
 
     private static FileInputStream fileInputStream;
     public static Properties PROPERTIES;
