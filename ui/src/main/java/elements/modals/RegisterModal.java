@@ -2,6 +2,7 @@ package elements.modals;
 
 import com.codeborne.selenide.ElementsContainer;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
 public class RegisterModal extends ElementsContainer {
@@ -18,7 +19,7 @@ public class RegisterModal extends ElementsContainer {
     @FindBy(css = "#register-email-modal")
     private SelenideElement emailInput;
 
-    @FindBy(css = "#password-modal")
+    @FindBy(css = "#register-password-modal")
     private SelenideElement passwordInput;
 
     @FindBy(css = ".btn-primary")
@@ -26,4 +27,34 @@ public class RegisterModal extends ElementsContainer {
 
     @FindBy(css = ".close")
     private SelenideElement closeButton;
+
+    @Step("Fill the 'Username' input")
+    public void fillUsernameInput(String username) {
+        usernameInput.setValue(username);
+    }
+
+    @Step("Fill the 'First name' input")
+    public void fillFirstNameInput(String firstName) {
+        firstNameInput.setValue(firstName);
+    }
+
+    @Step("Fill the 'Last name' input")
+    public void fillLastNameInput(String lastName) {
+        lastNameInput.setValue(lastName);
+    }
+
+    @Step("Fill the 'Email' input")
+    public void fillEmailInput(String email) {
+        emailInput.setValue(email);
+    }
+
+    @Step("Fill the 'Password' input")
+    public void fillPasswordInput(String password) {
+        passwordInput.setValue(password);
+    }
+
+    @Step("Click on the 'Register' button")
+    public void clickRegisterButton() {
+        registerButton.click();
+    }
 }
