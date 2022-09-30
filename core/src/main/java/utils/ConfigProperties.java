@@ -8,20 +8,20 @@ public class ConfigProperties {
 
     private ConfigProperties() {}
 
-    private static InputStream fileInputStream;
+    private static InputStream inputStream;
     public static Properties PROPERTIES;
 
     static {
         try {
-            fileInputStream = ConfigProperties.class.getClassLoader().getResourceAsStream("config.properties");
+            inputStream = ConfigProperties.class.getClassLoader().getResourceAsStream("config.properties");
             PROPERTIES = new Properties();
-            PROPERTIES.load(fileInputStream);
+            PROPERTIES.load(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (fileInputStream != null) {
+            if (inputStream != null) {
                 try {
-                    fileInputStream.close();
+                    inputStream.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
