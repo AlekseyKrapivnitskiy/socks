@@ -18,6 +18,9 @@ public class TopBarFragment extends ElementsContainer {
     @FindBy(css = "#howdy")
     private SelenideElement username;
 
+    @FindBy(css = "#logout")
+    private SelenideElement logoutButton;
+
     @Step("Click on the 'Login' button")
     public void clickOnLoginButton() {
         loginButton.click();
@@ -31,5 +34,10 @@ public class TopBarFragment extends ElementsContainer {
     @Step("Get username")
     public String getUsername() {
         return username.shouldBe(visible).getText().replace("Logged in as ", "");
+    }
+
+    @Step("Click on the 'Logout' button")
+    public void clickOnLogoutButton() {
+        logoutButton.click();
     }
 }
