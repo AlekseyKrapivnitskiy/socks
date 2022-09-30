@@ -24,7 +24,7 @@ public class CustomerLoginModal extends ElementsContainer {
 
     @Step("Fill the 'Username' input")
     public void fillUsernameInput(String username) {
-        usernameInput.setValue(username);
+        usernameInput.sendKeys(username); //modal opens too slow
     }
 
     @Step("Fill the 'Password' input")
