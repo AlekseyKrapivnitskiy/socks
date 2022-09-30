@@ -28,6 +28,9 @@ public class RegisterModal extends ElementsContainer {
     @FindBy(css = ".close")
     private SelenideElement closeButton;
 
+    @FindBy(css = "#registration-message")
+    private SelenideElement registrationMessage;
+
     @Step("Fill the 'Username' input")
     public void fillUsernameInput(String username) {
         usernameInput.setValue(username);
@@ -56,5 +59,10 @@ public class RegisterModal extends ElementsContainer {
     @Step("Click on the 'Register' button")
     public void clickRegisterButton() {
         registerButton.click();
+    }
+
+    @Step("Get registration message")
+    public String getRegistrationMessage() {
+        return registrationMessage.getText();
     }
 }
