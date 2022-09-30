@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static systemAlerts.LoginAlerts.LOGIN_SUCCESSFUL;
 import static systemAlerts.RegistrationAlerts.REGISTRATION_SUCCESSFUL;
 
 public class BasePage {
@@ -36,6 +37,7 @@ public class BasePage {
         customerLoginModal.fillUsernameInput(customer.getUsername());
         customerLoginModal.fillPasswordInput(customer.getPassword());
         customerLoginModal.clickOnLoginButton();
+        checkLoginMessage(LOGIN_SUCCESSFUL);
     }
 
     @Step("Open the 'Register' modal")
@@ -62,5 +64,15 @@ public class BasePage {
     @Step("Check registration message")
     public void checkRegistrationMessage(String message) {
         assertThat(registerModal.getRegistrationMessage(), containsString(message));
+    }
+
+    @Step("Check login message")
+    public void checkLoginMessage(String message) {
+        assertThat(customerLoginModal.getLoginMessage(), containsString(message));
+    }
+
+    @Step("Logout")
+    public void logout() {
+        topBar.clickOnLogoutButton();
     }
 }
