@@ -8,6 +8,7 @@ import static utils.ConfigProperties.getProperty;
 
 public class CustomerDataFaker {
 
+    private String username;
     private String firstName;
     private String lastName;
     private String email;
@@ -17,8 +18,12 @@ public class CustomerDataFaker {
 
         firstName = faker.name().firstName();
         lastName = faker.name().lastName();
-        email = firstName.toLowerCase(Locale.ROOT).trim() + lastName.toLowerCase(Locale.ROOT).trim() + "@" +
-                getProperty("emailDomain");
+        username = firstName.trim() + lastName.trim();
+        email = firstName.toLowerCase().trim() + lastName.toLowerCase().trim() + "@" + getProperty("emailDomain");
+    }
+
+    public String username() {
+        return username;
     }
 
     public String firstName() {
