@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class CustomerLoginModal extends ElementsContainer {
 
     @FindBy(css = "#username-modal")
-    private SelenideElement userNameInput;
+    private SelenideElement usernameInput;
 
     @FindBy(css = "#password-modal")
     private SelenideElement passwordInput;

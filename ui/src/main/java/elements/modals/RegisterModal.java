@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class RegisterModal extends ElementsContainer {
 
     @FindBy(css = "#register-username-modal")
-    private SelenideElement userNameInput;
+    private SelenideElement usernameInput;
 
     @FindBy(css = "#register-first-modal")
     private SelenideElement firstNameInput;
