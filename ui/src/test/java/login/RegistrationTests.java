@@ -24,12 +24,11 @@ public class RegistrationTests extends BaseTest {
         homePage = page(HomePage.class);
         String password = generatePassword(PasswordPolicy.builder().build());
         customer = generatedAllFieldsCustomer(ENGLISH, password);
+        open(getProperty("homePageUrl"));
     }
 
     @Test
     void registerPositive() {
-        open(getProperty("baseUrl"));
-
         homePage.openRegisterModal();
         homePage.fillRegisterModalClickOnRegisterButton(customer);
         homePage.checkCustomerLoggedIn(customer);
