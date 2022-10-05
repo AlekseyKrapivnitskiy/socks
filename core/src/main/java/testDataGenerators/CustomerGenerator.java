@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class CustomerGenerator {
 
-    public static Customer generatedAllFieldsCustomer(Locale locale, String password) {
+    public static Customer generateCustomer(Locale locale, String password) {
         CustomerDataFaker faker = new CustomerDataFaker(locale);
 
         return Customer.builder()

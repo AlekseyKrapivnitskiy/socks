@@ -10,7 +10,7 @@ import utils.passwordGenerator.PasswordPolicy;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static java.util.Locale.ENGLISH;
-import static testDataGenerators.CustomerGenerator.generatedAllFieldsCustomer;
+import static testDataGenerators.CustomerGenerator.generateCustomer;
 import static utils.ConfigProperties.getProperty;
 import static utils.passwordGenerator.PasswordGenerator.generatePassword;
 
@@ -23,7 +23,7 @@ public class RegistrationTests extends BaseTest {
     void beforeMethod() {
         homePage = page(HomePage.class);
         String password = generatePassword(PasswordPolicy.builder().build());
-        customer = generatedAllFieldsCustomer(ENGLISH, password);
+        customer = generateCustomer(ENGLISH, password);
         open(getProperty("homePageUrl"));
     }
 
