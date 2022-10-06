@@ -11,5 +11,6 @@ public class BaseTest {
     public void beforeSuite() {
         baseUrl = getProperty("baseUrl");
         browser = "chrome";
+        headless = true;
     }
 }
