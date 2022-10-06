@@ -13,7 +13,8 @@ public class PasswordGenerator {
     private final static Logger log = LoggerFactory.getLogger(CustomerGenerator.class);
 
     public static String generatePassword(PasswordPolicy passwordPolicy) {
-        log.info("Generating password with the password policy = {}", passwordPolicy);
+        log.info("Generating a password");
+        log.debug("The password policy = {}", passwordPolicy);
 
         String LOWER = "abcdefghijklmnopqrstuvwxyz";
         String UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -42,8 +43,8 @@ public class PasswordGenerator {
             int position = random.nextInt(charCategory.length());
             password.append(charCategory.charAt(position));
         }
-
-        log.info("Generated password = {}", password);
+        log.info("The password is generated");
+        log.debug("The generated password = {}", password);
 
         return password.toString();
     }

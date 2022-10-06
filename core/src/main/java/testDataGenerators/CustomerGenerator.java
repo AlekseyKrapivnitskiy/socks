@@ -11,6 +11,8 @@ public class CustomerGenerator {
     private final static Logger log = LoggerFactory.getLogger(CustomerGenerator.class);
 
     public static Customer generateCustomer(Locale locale, String password) {
+        log.info("Generating a new customer");
+
         CustomerDataFaker faker = new CustomerDataFaker(locale);
 
         Customer customer = Customer.builder()
@@ -21,7 +23,8 @@ public class CustomerGenerator {
                 .password(password)
                 .build();
 
-        log.info("Generated customer = {}", customer);
+        log.info("The customer is generated");
+        log.debug("Generated customer = {} on local = {}", customer, locale);
 
         return customer;
     }
